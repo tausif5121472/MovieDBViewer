@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  MovieDBViewer
 //
-//  Created by Aksa on 04/11/2023.
+//  Created by Tausif Murtaza
 //
 
 import UIKit
