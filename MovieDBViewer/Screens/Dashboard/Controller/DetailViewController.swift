@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
         movieTitle.text = model.title
         movieImdb.text = model.releaseDate
         movieDescription.text = model.overview
-        movieLanguage.text = model.originalLanguage?.rawValue
+        movieLanguage.text = model.originalLanguage
         movieGenres.text = "\(model.voteAverage ?? 0.0)"
     }
     

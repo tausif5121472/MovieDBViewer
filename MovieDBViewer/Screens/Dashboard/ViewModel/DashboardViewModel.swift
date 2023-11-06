@@ -16,8 +16,8 @@ class DashboardViewModel {
     let apiCaller = ApiCallerClass.shared
     weak var delegate: DashboardViewModelDelegate? = nil
     
-    func fetchPopularMovies() {
-        apiCaller.fetchPopularMoviesApi { model in
+    func fetchPopularMovies(language: String = "en-US", page: Int) {
+        apiCaller.fetchPopularMoviesApi(language: language, page: page){ model in
             self.delegate?.successfulFetchMovies(moviesList: model)
         } failedCallBack: { error in
             self.delegate?.failToFetchMovies(errorMessage: error)

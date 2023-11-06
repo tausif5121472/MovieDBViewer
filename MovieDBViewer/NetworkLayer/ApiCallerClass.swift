@@ -13,11 +13,11 @@ class ApiCallerClass {
     let parser = ResposeParserManager.shared
     let apiManager = ApiManager.shared
     
+    
     private init() {}
     
-    func fetchPopularMoviesApi(successCallBack: @escaping(PopularMoviesModel)->Void, failedCallBack: @escaping(String)->Void) {
-        let param: [String : String] = ["language":"en-US","page": "1"]//page will change dynamically but now its static
-        var fetchRequest = apiManager.requestConfiguration(url: .fetchPopularMovieList, param: param, method: .GET)
+    func fetchPopularMoviesApi(language: String,page: Int,successCallBack: @escaping(PopularMoviesModel)->Void, failedCallBack: @escaping(String)->Void) {//page will change dynamically but now its static
+        var fetchRequest = apiManager.requestConfiguration(url: .fetchPopularMovieList(language: language, page: page), param: [:], method: .GET)
         fetchRequest?.allHTTPHeaderFields = HeaderManager.shared.configHeader(authorizationToken: ConstantsManager.authTokenKey)
         
         guard let serverRequest = fetchRequest else { return }

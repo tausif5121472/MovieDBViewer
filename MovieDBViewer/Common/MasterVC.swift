@@ -8,7 +8,7 @@
 import UIKit
 
 class MasterVC: UIViewController {
-    
+    var loadingIndicator = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,7 +17,7 @@ class MasterVC: UIViewController {
     func loadinHubShow(showAt: UIView) {
         
         let _ = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        loadingIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = .large
         loadingIndicator.color = .black
@@ -35,6 +35,7 @@ class MasterVC: UIViewController {
     }
     
     func loadinHubDismiss() {
+        loadingIndicator.removeFromSuperview()
         dismiss(animated: false, completion: nil)
     }
 }
